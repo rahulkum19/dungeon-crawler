@@ -149,3 +149,4 @@ java -jar target/a09-dungeon-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 - **Easy Mode**: Enemies roam randomly across valid adjoining tiles.
 - **Hard Mode**: Enemy AI computes vector deltas toward the hero, actively cornering and hunting the player down.
+
