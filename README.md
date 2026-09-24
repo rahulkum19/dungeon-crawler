@@ -7,9 +7,9 @@
 
 ## Overview
 
-Dungeon Crawler 2D is a dynamic, turn-based 2D dungeon exploration game built using Java and JavaFX. The application strictly follows the Model-View-Controller (MVC) and Observer design patterns, ensuring a clean decoupling of game logic, spatial algorithms, and board state from user interface presentation and input processing.
+Dungeon Crawler 2D is a turn-based dungeon exploration game built in Java and JavaFX. The application follows the Model-View-Controller (MVC) and Observer design patterns, keeping game rules, board state, and movement logic completely separate from the UI rendering and keyboard controls.
 
-Players navigate a procedurally populated dungeon floor filled with obstacles, hostile adversaries, and hidden loot. The objective is to gather valuable treasure, recover bonus hearts, outwit roaming enemies, and reach the exit portal to descend into deeper, increasingly dangerous dungeon chambers.
+Players navigate procedurally generated dungeon floors filled with walls, enemies, and collectible items. The goal is to collect treasure, recover health with bonus hearts, avoid roaming enemies, and reach the exit portal to advance to deeper, progressively harder levels.
 
 ---
 
