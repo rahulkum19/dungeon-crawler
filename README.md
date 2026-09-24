@@ -30,24 +30,24 @@ Players navigate procedurally generated dungeon floors filled with walls, enemie
 
 ### Model-View-Controller (MVC)
 
-- **Model**: Manages board matrix representation, positioning (`Posn`), score, lives, difficulty, and room progression. Encapsulates entity contracts (`Piece`, `APiece`, `MovablePiece`) and turn resolution.
-- **View**: JavaFX views (`TitleScreenView`, `GameView`, `EndView`) observe the model and render reactive graphics without direct business logic coupling.
-- **Controller**: Translates keyboard keystrokes (WASD) and UI button presses into semantic model mutations.
+- **Model**: Manages the 2D grid matrix, entity coordinates (`Posn`), player score, health, difficulty, and room progression. Encapsulates entity hierarchies (`Piece`, `APiece`, `MovablePiece`) and turn logic.
+- **View**: JavaFX views (`TitleScreenView`, `GameView`, `EndView`) observe the model and render the game board and UI without directly handling game rules.
+- **Controller**: Listens for keyboard input (WASD) and on-screen button presses, translating player actions into method calls on the model.
 
 ### Observer Pattern
 
-The model implements the `Subject` interface, allowing any view implementing `Observer` to register via `addObserver(Observer o)`. State mutations trigger `notifyObservers()`, enabling seamless, decoupled view updates.
+The model implements the `Subject` interface, allowing any view implementing `Observer` to register via `addObserver(Observer o)`. When game state changes (such as player movement or collisions), the model calls `notifyObservers()`, prompting the views to re-render automatically.
 
-### Collision State Machine
+### Collision Logic
 
-Movement resolution evaluates interactions between moving entities and target coordinates:
+When an entity moves into a target tile, the game evaluates the collision outcome:
 
-- **Hero & Empty Spot**: Safe movement; turn concludes normally.
+- **Hero & Empty Tile**: Safe movement; the turn concludes normally.
 - **Hero & Treasure**: Grants +50 points and collects the chest.
-- **Hero & Heart**: Increases life points and collects the heart.
-- **Hero & Exit**: Advances dungeon floor (`CollisionResult.Result.NEXT_LEVEL`).
-- **Hero & Enemy**: Consumes 1 bonus life if available; otherwise triggers `Result.GAME_OVER`.
-- **Enemy & Board**: Enemies consume unprotected treasures and damage the hero, but cannot cross walls or exits.
+- **Hero & Heart**: Gains +1 extra life and collects the heart.
+- **Hero & Exit**: Advances the player to the next dungeon floor (`CollisionResult.Result.NEXT_LEVEL`).
+- **Hero & Enemy**: Consumes 1 bonus life to eliminate the enemy; if the player has no extra lives, triggers `Result.GAME_OVER`.
+- **Enemy & Board**: Enemies consume unprotected treasures and damage the hero, but cannot move through walls or exits.
 
 ---
 
