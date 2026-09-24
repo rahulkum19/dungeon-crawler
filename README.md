@@ -19,7 +19,7 @@ Players navigate procedurally generated dungeon floors filled with walls, enemie
 - **Dual-Mode Turn-Based Enemy AI**:
   - **Easy Mode**: Enemies pick random, valid adjacent tiles within the dungeon boundaries.
   - **Hard Mode**: Aggressive target-tracking movement where enemies calculate the coordinate distance to the player and move directly toward them.
-- **Life & Health System**: Players can collect heart items to gain extra hit points, allowing them to survive enemy collisions and take out the enemy.
+- **Life & Health System**: Collectible heart items grant extra hit points, allowing players to survive an enemy collision and eliminate the enemy.
 - **Session Scoring & High Scores**: Tracks points earned per floor (+50 per treasure chest) and updates high scores across playthroughs.
 - **Audio Playback**: Plays a continuous dungeon theme soundtrack using JavaFX Media (`MediaPlayer`).
 - **Observer-Driven UI Updates**: Uses the Observer pattern so JavaFX views update automatically in response to state changes in the model, keeping the UI cleanly decoupled from game logic.
