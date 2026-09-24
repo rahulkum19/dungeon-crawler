@@ -54,46 +54,47 @@ When an entity moves into a target tile, the game evaluates the collision outcom
 ## Project Structure
 
 ```text
-src/
-|-- main/
-|-- java/com/comp301/a09dungeon/
-|   |-- Main.java                        # Application entry point
-|   |-- controller/
-|   |   |-- Controller.java              # Controller interface
-|   |   `-- ControllerImpl.java          # Event-handling implementation
-|   |-- model/
-|   |   |-- Model.java                   # Core model contract
-|   |   |-- ModelImpl.java               # Game rules and turn lifecycle
-|   |   |-- Observer.java                # Observer interface
-|   |   |-- Subject.java                 # Subject interface
-|   |   |-- board/
-|   |   |   |-- Board.java               # Board layout contract
-|   |   |   |-- BoardImpl.java           # Grid matrix & movement validation
-|   |   |   `-- Posn.java                # Immutable (row, col) coordinates
-|   |   `-- pieces/
-|   |       |-- Piece.java               # Entity contract
-|   |       |-- APiece.java              # Abstract base entity
-|   |       |-- MovablePiece.java        # Move / collision interface
-|   |       |-- CollisionResult.java     # Collision outcome container
-|   |       |-- Hero.java                # Player avatar
-|   |       |-- Enemy.java               # Hostile entity
-|   |       |-- Treasure.java            # Collectible point item
-|   |       |-- Heart.java               # Collectible health item
-|   |       |-- Wall.java                # Impassable barrier
-|   |       `-- Exit.java                # Level transition gate
-|   `-- view/
-|       |-- AppLauncher.java             # JavaFX Application bootstrapper
-|       |-- FXComponent.java             # View component interface
-|       |-- View.java                    # Master view router
-|       |-- TitleScreenView.java         # Start / settings menu
-|       |-- GameView.java                # Main dungeon viewport
-|       |-- EndView.java                 # Game-over & retry screen
-|       `-- Music.java                   # Background audio controller
-`-- resources/
-    |-- *.jpg                            # Sprites (hero, enemy, tiles, UI buttons)
-    |-- music.mp3                        # Background soundtrack
-    `-- style/dungeon.css                # JavaFX styling definitions
-pom.xml                                  # Maven configuration & plugins
+dungeon-crawler/
+|-- pom.xml                                  # Maven dependencies & build configuration
+`-- src/
+    `-- main/
+        |-- java/com/comp301/a09dungeon/
+        |   |-- Main.java                    # Application entry point
+        |   |-- controller/
+        |   |   |-- Controller.java          # Controller interface
+        |   |   `-- ControllerImpl.java      # Keyboard and button event handling
+        |   |-- model/
+        |   |   |-- Model.java               # Core model interface
+        |   |   |-- ModelImpl.java           # Game state and turn logic
+        |   |   |-- Observer.java            # Observer interface
+        |   |   |-- Subject.java             # Subject interface for event dispatch
+        |   |   |-- board/
+        |   |   |   |-- Board.java           # Board layout interface
+        |   |   |   |-- BoardImpl.java       # Grid matrix & boundary validation
+        |   |   |   `-- Posn.java            # Immutable (row, col) coordinates
+        |   |   `-- pieces/
+        |   |       |-- Piece.java           # Base entity interface
+        |   |       |-- APiece.java          # Abstract piece implementation
+        |   |       |-- MovablePiece.java    # Interface for movable game entities
+        |   |       |-- CollisionResult.java # Collision outcome data container
+        |   |       |-- Hero.java            # Player character entity
+        |   |       |-- Enemy.java           # Enemy entity with AI movement
+        |   |       |-- Treasure.java        # Collectible point item (+50 pts)
+        |   |       |-- Heart.java           # Collectible health item (+1 life)
+        |   |       |-- Wall.java            # Impassable barrier
+        |   |       `-- Exit.java            # Next level portal
+        |   `-- view/
+        |       |-- AppLauncher.java         # JavaFX application setup & window initialization
+        |       |-- FXComponent.java         # Functional UI component interface
+        |       |-- View.java                # Master view router
+        |       |-- TitleScreenView.java     # Start menu & difficulty selector
+        |       |-- GameView.java            # Main dungeon board view
+        |       |-- EndView.java             # Game-over & retry screen
+        |       `-- Music.java               # Background audio controller
+        `-- resources/
+            |-- *.jpg                        # Game sprites (hero, enemy, tiles, UI buttons)
+            |-- music.mp3                    # Background soundtrack
+            `-- style/dungeon.css            # JavaFX CSS styling definitions
 ```
 
 ---
