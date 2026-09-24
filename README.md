@@ -105,25 +105,20 @@ pom.xml                                  # Maven configuration & plugins
 - **Java Development Kit (JDK)**: Version 21 or higher (JDK 23 recommended).
 - **Apache Maven**: Version 3.8+ installed and available on PATH.
 
-### Build and Execution
+### Running the Game
 
-Compile and launch the game directly via the JavaFX Maven plugin:
+#### Option 1: Via Terminal (Maven)
+Compile and launch the game directly from the project root:
 
 ```bash
 mvn clean javafx:run
 ```
 
-### Packaging Executable JAR
-
-Build a standalone executable JAR bundling all required dependencies:
-
-```bash
-mvn clean package
-```
-
-```bash
-java -jar target/a09-dungeon-1.0-SNAPSHOT-jar-with-dependencies.jar
-```
+#### Option 2: Via IntelliJ IDEA
+1. Open the project in IntelliJ IDEA.
+2. Open the **Maven** tool window on the right sidebar.
+3. Expand **Plugins** -> **javafx**.
+4. Double-click **javafx:run**.
 
 ---
 
