@@ -15,14 +15,14 @@ Players navigate procedurally generated dungeon floors filled with walls, enemie
 
 ## Key Features
 
-- **Procedural Level Generation**: Randomizes placement of walls, treasures, hearts, enemies, exit portal, and player hero while strictly guaranteeing grid boundary integrity.
+- **Procedural Level Generation**: Randomizes the placement of walls, treasures, hearts, enemies, and the exit portal on each floor while ensuring valid board boundaries and collision checks.
 - **Dual-Mode Turn-Based Enemy AI**:
-  - **Easy Mode**: Enemies pick non-colliding random directions within dungeon boundaries.
-  - **Hard Mode**: Aggressive vector-delta pathing where enemies actively hunt the player's coordinate position.
-- **Life & Health System**: Collectible heart pieces grant protective hit points against enemy collisions.
-- **Persistent Session Scoring**: Tracks current run points (+50 per gold doubloon) and updates high scores across playthroughs.
-- **Integrated Atmospheric Audio**: Continuous dungeon theme soundtrack using JavaFX Media.
-- **Decoupled Event Architecture**: The JavaFX view re-renders purely in reaction to observer notifications emitted by the model.
+  - **Easy Mode**: Enemies pick random, valid adjacent tiles within the dungeon boundaries.
+  - **Hard Mode**: Aggressive target-tracking movement where enemies calculate the coordinate distance to the player and move directly toward them.
+- **Life & Health System**: Players can collect heart items to gain extra hit points, allowing them to survive enemy collisions and take out the enemy.
+- **Session Scoring & High Scores**: Tracks points earned per floor (+50 per treasure chest) and updates high scores across playthroughs.
+- **Audio Playback**: Plays a continuous dungeon theme soundtrack using JavaFX Media (`MediaPlayer`).
+- **Observer-Driven UI Updates**: Uses the Observer pattern so JavaFX views update automatically in response to state changes in the model, keeping the UI cleanly decoupled from game logic.
 
 ---
 
