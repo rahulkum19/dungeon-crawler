@@ -129,19 +129,19 @@ mvn clean javafx:run
 | Action | Keyboard | On-Screen Button |
 | :--- | :---: | :---: |
 | Move Up | W | Click Up Button (▲) |
-| Move Down | S | Click Down Button (▼) |
 | Move Left | A | Click Left Button (◀) |
+| Move Down | S | Click Down Button (▼) |
 | Move Right | D | Click Right Button (▶) |
 
 ### Game Mechanics
 
 1. **Survive & Advance**: Step into the exit portal to progress to the next room. Each subsequent floor adds more enemies.
-2. **Collect Treasure**: Pick up golden chests to boost your session score by 50 points each.
-3. **Collect Hearts**: Gathering hearts grants extra life protection against enemy collisions.
-4. **Avoid Death**: Colliding with an enemy without extra lives ends the expedition and records your high score.
+2. **Collect Treasure**: Pick up treasure chests to boost your score by 50 points each.
+3. **Collect Hearts**: Gathering hearts grants extra life protection. Colliding with an enemy consumes 1 life and eliminates the enemy.
+4. **Avoid Death**: Colliding with an enemy without extra lives results in Game Over and updates your high score.
 
 ### Difficulty Modes
 
-- **Easy Mode**: Enemies roam randomly across valid adjoining tiles.
-- **Hard Mode**: Enemy AI computes vector deltas toward the hero, actively cornering and hunting the player down.
+- **Easy Mode**: Enemies move randomly to adjacent valid tiles.
+- **Hard Mode**: Enemies actively track the player's grid coordinates, moving directly toward the player to hunt them down.
 
